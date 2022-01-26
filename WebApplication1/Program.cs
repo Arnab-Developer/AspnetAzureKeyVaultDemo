@@ -15,6 +15,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+if (app.Environment.IsProduction())
+{
+    SecretClient secretClient = new(
+        new Uri($"https://{builder.Configuration["KeyVaultName"]}.vault.azure.net/"),
+        new DefaultAzureCredential());
+    builder.Configuration.AddAzureKeyVault(secretClient, new KeyVaultSecretManager());
+}
 app.MapControllers();
 
 app.Run();
