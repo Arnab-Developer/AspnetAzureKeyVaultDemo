@@ -8,7 +8,7 @@ running in local machine then it should read the secrets from
 When the app is deployed and running from Azure then it should read secrets from 
 [key vault](https://azure.microsoft.com/en-gb/services/key-vault/).
 
-To test azure key vault:
+To test with azure key vault:
 
 - Create app service in azure and deploy this app.
 - Create key vault and add 'Address' secret with some value.
