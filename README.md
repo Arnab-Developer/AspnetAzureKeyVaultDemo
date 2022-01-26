@@ -8,6 +8,19 @@ running in local machine then it should read the secrets from
 When the app is deployed and running from Azure then it should read secrets from 
 [key vault](https://azure.microsoft.com/en-gb/services/key-vault/).
 
+To run this app from local:
+
+- Clone the repo.
+- Open the solution with Visual Studio.
+- Right click on the project and click on 'Manage User Secrets'.
+- Use below json in the user secret
+```json
+{
+  "Address": "user secret value"
+}
+```
+- Press F5 in Visual Studio to run the app.
+
 To test with azure key vault:
 
 - Create app service in azure and deploy this app.
