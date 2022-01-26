@@ -7,3 +7,7 @@ running in local machine then it should read the secrets from
 [user secret](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-5.0&tabs=windows#how-the-secret-manager-tool-works).
 When the app is deployed and running from Azure then it should read secrets from 
 [key vault](https://azure.microsoft.com/en-gb/services/key-vault/).
+
+You can deploy this app in Azure app service and use key vault to access secrets. You need
+to 'add access policy' in the key vault with the app service identity principal so that
+the application can access key vault successfully.
