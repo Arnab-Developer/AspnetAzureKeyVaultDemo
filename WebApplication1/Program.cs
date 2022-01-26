@@ -3,22 +3,18 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using WebApplication1;
 
-CreateHostBuilder(args).Build().Run();
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllersWithViews();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.Configure<Settings>(builder.Configuration);
 
-static IHostBuilder CreateHostBuilder(string[] args) =>
-    Host.CreateDefaultBuilder(args)
-        .ConfigureAppConfiguration((context, config) =>
-        {
-            if (context.HostingEnvironment.IsProduction())
-            {
-                IConfigurationRoot builtConfig = config.Build();
-                SecretClient secretClient = new(
-                    new Uri($"https://{builtConfig["KeyVaultName"]}.vault.azure.net/"),
-                    new DefaultAzureCredential());
-                config.AddAzureKeyVault(secretClient, new KeyVaultSecretManager());
-            }
-        })
-        .ConfigureWebHostDefaults(webBuilder =>
-        {
-            webBuilder.UseStartup<Startup>();
-        });
+WebApplication app = builder.Build();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+app.MapControllers();
+
+app.Run();
