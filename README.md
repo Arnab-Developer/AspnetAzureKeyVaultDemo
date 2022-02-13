@@ -11,7 +11,7 @@ When the app is deployed and running from Azure then it should read secrets from
 With this sample app you can able to see how 'appsettings' value has been overwritten 
 by 'user secret' and 'user secret' value has been overwritten by 'azure key vault'.
 
-## Run this app from local with user secret
+## Run this app from local with 'user secret'
 
 - Clone the repo.
 - Open the solution with Visual Studio.
@@ -24,7 +24,7 @@ by 'user secret' and 'user secret' value has been overwritten by 'azure key vaul
 ```
 - Press F5 in Visual Studio to run the app.
 
-## Run this app from azure with azure key vault
+## Run this app from azure with 'azure key vault'
 
 - Create app service in azure and deploy this app.
 - Create key vault and add 'Address' secret with some value.
