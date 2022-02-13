@@ -8,7 +8,10 @@ running in local machine then it should read the secrets from
 When the app is deployed and running from Azure then it should read secrets from 
 [key vault](https://azure.microsoft.com/en-gb/services/key-vault/).
 
-## Run this app from local
+With this sample app you can able to see how 'appsettings' value has been overwritten 
+by 'user secret' and 'user secret' value has been overwritten by 'azure key vault'.
+
+## Run this app from local with user secret
 
 - Clone the repo.
 - Open the solution with Visual Studio.
